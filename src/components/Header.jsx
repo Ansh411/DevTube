@@ -25,7 +25,7 @@ const Header = () => {
 
           <a href="/">
           <img
-            src="/DevTube_Light.png" alt="DevTube Logo" className="h-10 md:h-11 cursor-pointer"
+            src="/DevTube_Light.png" alt="DevTube Logo" className="hidden lg:block h-10 md:h-11 cursor-pointer"
           />
           </a>
         </div>
@@ -33,7 +33,7 @@ const Header = () => {
         <div className="flex flex-1 justify-center">
           <div className="flex w-full max-w-xl">
             <input type="text" placeholder="Search" className="grow px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-rose-500 "/>
-            <button className="px-5 border border-l-0 border-gray-300 rounded-r-full bg-gray-100 hover:bg-gray-200 cursor-pointer transition">
+            <button className="px-5 border border-l-0 border-gray-300 rounded-r-full bg-gray-100 hover:bg-gray-200 hover:border-rose-600 cursor-pointer transition">
               <CiSearch className="text-2xl" />
             </button>
           </div>
