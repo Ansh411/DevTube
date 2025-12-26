@@ -5,14 +5,16 @@ import SidebarItem from "./SidebarItem";
 
 import { TbHomeFilled } from "react-icons/tb";
 import { SiYoutubeshorts, SiYoutubegaming, SiPodcastindex } from "react-icons/si";
-import { MdSubscriptions, MdPlaylistPlay, MdOutlineTimer } from "react-icons/md";
-import { HiMiniShoppingBag } from "react-icons/hi2";
+import { MdSubscriptions, MdPlaylistPlay, MdOutlineTimer, MdFeedback } from "react-icons/md";
+import { HiMiniShoppingBag, HiMiniQuestionMarkCircle } from "react-icons/hi2";
 import { PiMusicNotesFill, PiFilmSlateBold, PiCoatHangerFill } from "react-icons/pi";
 import { GiNewspaper } from "react-icons/gi";
 import { FaTrophy, FaHistory, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { FaGraduationCap, FaMicrophoneLines } from "react-icons/fa6";
 import { BiSolidLike } from "react-icons/bi";
 import { PiVideoFill, PiDownloadSimpleBold } from "react-icons/pi";
+import { IoSettings } from "react-icons/io5";
+import { RiFlagFill } from "react-icons/ri";
 
 
 const Sidebar = () => {
@@ -51,7 +53,7 @@ const Sidebar = () => {
 
         {/* YOU */}
         {!collapsed && (
-          <p className="px-4 text-xs font-semibold text-gray-500 uppercase">
+          <p className="px-4 text-xs font-bold text-gray-500 uppercase">
             You
           </p>
         )}
@@ -60,14 +62,14 @@ const Sidebar = () => {
         <SidebarItem icon={MdPlaylistPlay} label="Playlists" collapsed={collapsed} />
         <SidebarItem icon={MdOutlineTimer} label="Watch Later" collapsed={collapsed} />
         <SidebarItem icon={BiSolidLike} label="Liked Videos" collapsed={collapsed} />
-        <SidebarItem icon={PiVideoFill} label="Your Videos" collapsed={collapsed} />
+        {/* <SidebarItem icon={PiVideoFill} label="Your Videos" collapsed={collapsed} /> */}
         <SidebarItem icon={PiDownloadSimpleBold} label="Downloads" collapsed={collapsed} />
 
         <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
 
         {/* EXPLORE */}
         {!collapsed && (
-          <p className="px-4 text-xs font-semibold text-gray-500 uppercase">
+          <p className="px-4 text-xs font-bold text-gray-500 uppercase">
             Explore
           </p>
         )}
@@ -85,7 +87,7 @@ const Sidebar = () => {
         {!collapsed && (
           <button
             onClick={() => setShowMore(!showMore)}
-            className="w-full flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 transition cursor-pointer">
+            className="w-full flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-lg hover:bg-gray-100 transition cursor-pointer">
             {showMore ? (
               <>
                 Show less <FaAngleUp />
@@ -97,6 +99,11 @@ const Sidebar = () => {
             )}
           </button>
         )}
+        <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
+        <SidebarItem icon={IoSettings} label="Settings" collapsed={collapsed} />
+        <SidebarItem icon={RiFlagFill} label="Report History" collapsed={collapsed} />
+        <SidebarItem icon={HiMiniQuestionMarkCircle} label="Help" collapsed={collapsed} />
+        <SidebarItem icon={MdFeedback} label="Send Feedback" collapsed={collapsed} />
       </div>
     </aside>
   );
