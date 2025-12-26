@@ -2,7 +2,7 @@
 const SidebarItem = ({ icon: Icon, label, collapsed }) => {
   
   return (
-    <div className="relative group">
+    <div className={`relative group ${!collapsed ? "pl-3.25" : ""}`}>
       <div className={`flex items-center gap-4 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-100 transition-colors ${collapsed ? "pl-7" : ""}`}>
         <Icon className="text-xl shrink-0" />
 

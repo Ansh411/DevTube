@@ -25,7 +25,7 @@ const Header = () => {
 
           <a href="/">
           <img
-            src="/DevTube_Light.png" alt="DevTube Logo" className="h-9 md:h-10 cursor-pointer"
+            src="/DevTube_Light.png" alt="DevTube Logo" className="h-10 md:h-11 cursor-pointer"
           />
           </a>
         </div>
