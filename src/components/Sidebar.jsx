@@ -40,7 +40,7 @@ const Sidebar = () => {
   return (
     <aside
       className={`h-[calc(100vh-4rem)] bg-white border-r border-gray-200
-        overflow-y-auto overflow-x-hidden transition-[width] duration-300 ease-in-out shrink-0 w-20
+        overflow-y-auto overflow-x-hidden transition-[width] duration-300 ease-in-out shrink-0 w-20 no-scrollbar
         ${isMenuOpen ? "lg:w-64" : "lg:w-20"}`}>
       <div className="py-4 space-y-3">
 
@@ -53,7 +53,7 @@ const Sidebar = () => {
 
         {/* YOU */}
         {!collapsed && (
-          <p className="px-4 text-xs font-bold text-gray-500 uppercase">
+          <p className="hidden lg:block px-4 text-xs font-bold text-gray-500 uppercase">
             You
           </p>
         )}
@@ -69,7 +69,7 @@ const Sidebar = () => {
 
         {/* EXPLORE */}
         {!collapsed && (
-          <p className="px-4 text-xs font-bold text-gray-500 uppercase">
+          <p className="hidden lg:block px-4 text-xs font-bold text-gray-500 uppercase">
             Explore
           </p>
         )}
@@ -87,7 +87,7 @@ const Sidebar = () => {
         {!collapsed && (
           <button
             onClick={() => setShowMore(!showMore)}
-            className="w-full flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-lg hover:bg-gray-100 transition cursor-pointer">
+            className="hidden lg:flex w-full items-center gap-2 px-4 py-2 text-sm font-bold rounded-lg hover:bg-gray-100 transition cursor-pointer">
             {showMore ? (
               <>
                 Show less <FaAngleUp />
@@ -104,6 +104,8 @@ const Sidebar = () => {
         <SidebarItem icon={RiFlagFill} label="Report History" collapsed={collapsed} />
         <SidebarItem icon={HiMiniQuestionMarkCircle} label="Help" collapsed={collapsed} />
         <SidebarItem icon={MdFeedback} label="Send Feedback" collapsed={collapsed} />
+
+        <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
       </div>
     </aside>
   );

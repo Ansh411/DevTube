@@ -7,8 +7,8 @@ const SidebarItem = ({ icon: Icon, label, collapsed }) => {
         <Icon className="text-xl shrink-0" />
 
         {/* Animated label */}
-        <span className={`text-sm font-semibold whitespace-nowrap transition-all duration-200
-            ${collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 w-auto"}`}>
+        <span className={`text-sm font-semibold whitespace-nowrap transition-all duration-200 hidden lg:inline-block
+            ${collapsed ? "lg:opacity-0 w-0 overflow-hidden" : "lg:opacity-100 w-auto"}`}>
           {label}
         </span>
       </div>
