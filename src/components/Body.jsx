@@ -5,7 +5,7 @@ const Body = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex-1 min-h-screen bg-gray-50">
+      <main className="flex-1 min-w-0 min-h-screen bg-gray-50">
         <MainContainer />
       </main>
     </div>
