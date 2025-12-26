@@ -1,12 +1,16 @@
 import Sidebar from "./Sidebar";
-import MainContainer from "./MainContainer";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Body = () => {
+
+  const location = useLocation();
+  const isWatchPage = location.pathname === "/watch";
+
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex-1 min-w-0 min-h-screen bg-gray-50">
-        <MainContainer />
+      <main className={`${!isWatchPage ? "flex-1 min-w-0 min-h-screen" : ""}`}>
+        <Outlet />
       </main>
     </div>
   );
