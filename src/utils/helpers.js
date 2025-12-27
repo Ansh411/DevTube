@@ -1,13 +1,13 @@
-export const formatViews = (views) => {
-  if (!views) return "0 views";
+export const format = (count) => {
+  if (!count) return "0 ";
 
-  const num = Number(views);
+  const num = Number(count);
 
-  if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1) + "B views";
-  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M views";
-  if (num >= 1_000) return (num / 1_000).toFixed(1) + "K views";
+  if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1) + "B ";
+  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M ";
+  if (num >= 1_000) return (num / 1_000).toFixed(1) + "K ";
 
-  return num + " views";
+  return num;
 };
 
 export const timeAgo = (publishedAt) => {

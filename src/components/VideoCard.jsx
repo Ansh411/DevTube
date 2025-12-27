@@ -1,5 +1,5 @@
 import ChannelAvatar from "./ChannelAvatar";
-import { formatViews, timeAgo } from "../utils/helpers";
+import { format, timeAgo } from "../utils/helpers";
 
 const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
@@ -30,7 +30,7 @@ const VideoCard = ({ info }) => {
           </p>
 
           <p className="text-xs font-semibold  text-gray-600">
-            {formatViews(statistics?.viewCount)} • {timeAgo(publishedAt)}
+            {format(statistics?.viewCount) + "views"} • {timeAgo(publishedAt)}
           </p>
         </div>
       </div>
