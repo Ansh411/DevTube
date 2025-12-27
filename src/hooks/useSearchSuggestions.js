@@ -24,13 +24,17 @@ const useSearchSuggestions = (searchQuery) => {
 
       // ❌ Cache miss → API call
       const res = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      if (!res.ok) {
+        console.error("Search API failed");
+        return;
+      }
       const json = await res.json();
 
-      setSuggestions(json[1]);
+      setSuggestions(json.suggestions);
 
       dispatch(
         cacheResults({
-          [searchQuery]: json[1],
+          [searchQuery]: json.suggestions,
         })
       );
     }, 200);

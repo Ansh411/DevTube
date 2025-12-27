@@ -4,7 +4,7 @@ export const YOUTUBE_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/vid
 
 export const YOUTUBE_CHANNEL_API = (channelId) => `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`;
 
-export const YOUTUBE_SEARCH_API = "/yt-suggest/complete/search?client=firefox&ds=yt&q=";
+export const YOUTUBE_SEARCH_API = "https://devtube-backend-8ffj.onrender.com/api/search?q=";
 
 export const Tags = [
   "All",

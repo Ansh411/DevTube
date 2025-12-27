@@ -5,7 +5,6 @@ import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../store/appSlice";
 import SearchBar from "../components/SearchComponent/SearchBar";
-
 const Header = () => {
   const dispatch = useDispatch();
 
