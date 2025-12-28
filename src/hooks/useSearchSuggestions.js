@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { YOUTUBE_SEARCH_SUGGESTIONS_API } from "../utils/constants";
 import { cacheResults } from "../store/searchSlice";
 
 const useSearchSuggestions = (searchQuery) => {
@@ -23,7 +23,7 @@ const useSearchSuggestions = (searchQuery) => {
       }
 
       // ❌ Cache miss → API call
-      const res = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const res = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API + searchQuery);
       if (!res.ok) {
         console.error("Search API failed");
         return;
