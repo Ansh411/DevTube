@@ -20,12 +20,9 @@ const Avatar = ({ img, small }) => {
         <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-full" />
       )}
 
-      <img
-        src={img}
+      <img src={img}
         alt="user"
-        className={`w-full h-full object-cover ${
-          loaded ? "block" : "hidden"
-        }`}
+        className={`w-full h-full object-cover ${loaded ? "block" : "hidden"}`}
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
       />
