@@ -2,16 +2,27 @@ import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
 import useSearchSuggestions from "../../hooks/useSearchSuggestions";
 import SuggestionsList from "./SuggestionsList";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
 
+  const navigate = useNavigate();
   const suggestions = useSearchSuggestions(searchQuery);
 
+  const submitSearch = (query) => {
+    if(!query.trim()) return;
+    setShowSuggestions(false);
+    navigate(`/results?search_query=${encodeURIComponent(query)}`);
+  }
+
   const handleKeyDown = (e) => {
-    if (!suggestions.length) return;
+    if (!suggestions.length) {
+      if(e.key === "Enter") submitSearch(searchQuery);
+      return;
+    }
 
     if (e.key === "ArrowDown") {
       setActiveIndex((i) => (i + 1) % suggestions.length);
@@ -23,9 +34,8 @@ const SearchBar = () => {
       );
     }
 
-    if (e.key === "Enter" && activeIndex >= 0) {
-      setSearchQuery(suggestions[activeIndex]);
-      setShowSuggestions(false);
+    if (e.key === "Enter") {
+      submitSearch( activeIndex >= 0 ? suggestions[activeIndex] : searchQuery );
     }
   };
 
@@ -41,7 +51,8 @@ const SearchBar = () => {
         className="grow px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-rose-500"
       />
 
-      <button className="px-5 border border-l-0 border-gray-300 rounded-r-full bg-gray-100 hover:bg-gray-200 hover:border-rose-600 cursor-pointer transition">
+      <button onClick={() => submitSearch(searchQuery)}
+      className="px-5 border border-l-0 border-gray-300 rounded-r-full bg-gray-100 hover:bg-gray-200 hover:border-rose-600 cursor-pointer transition">
         <CiSearch className="text-2xl" />
       </button>
 
@@ -50,10 +61,7 @@ const SearchBar = () => {
           suggestions={suggestions}
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
-          onSelect={(value) => {
-            setSearchQuery(value);
-            setShowSuggestions(false);
-          }}
+          onSelect={submitSearch}
         />
       )}
     </div>
