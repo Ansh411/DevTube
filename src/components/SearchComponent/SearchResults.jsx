@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import VideoCard from "../VideoCard";
 import { YOUTUBE_SEARCH_VIDEOS_API, YOUTUBE_VIDEOS_BY_IDS_API } from "../../utils/constants";
-import Loader from "../Loader";
+import Loader_Results from "./Loader_Results";
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -45,7 +45,7 @@ const SearchResults = () => {
   }, [query]);
 
   if (loading) {
-    return <div className="mt-20 flex justify-center text-lg"><Loader/></div>;
+    return <div className="mt-20 flex justify-center text-lg"><Loader_Results/></div>;
   }
 
   return (
