@@ -20,3 +20,5 @@ export const avatars = [
 "https://i.pinimg.com/1200x/9c/e9/2a/9ce92a2effca3b2561bebf8a0ca35d57.jpg",
 
 ];
+
+export const ErrorImg = "https://i.pinimg.com/originals/db/04/00/db0400868e5aac451726ad8bb0f9a8f2.gif";
