@@ -8,7 +8,7 @@ export const YOUTUBE_SEARCH_SUGGESTIONS_API = "https://devtube-backend-8ffj.onre
 
 export const YOUTUBE_VIDEO_DATA_API = (videoId) => `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${YOUTUBE_API_KEY}`;
 
-export const YOUTUBE_COMMENTS_API = (videoId) => `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies&videoId=${videoId}&maxResults=25&key=${YOUTUBE_API_KEY}`;
+export const YOUTUBE_COMMENTS_API = (videoId) => `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies&videoId=${videoId}&maxResults=10&key=${YOUTUBE_API_KEY}`;
 
 export const YOUTUBE_SEARCH_VIDEOS_API = (query) => `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=28&q=${encodeURIComponent(query)}&key=${YOUTUBE_API_KEY}`;
 
