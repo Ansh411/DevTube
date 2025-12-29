@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_CHANNEL_API } from "../utils/constants";
 import { avatars } from "../assets/avatars";
+import { useDispatch, useSelector } from "react-redux";
+import { setChannel } from "../store/channelsSlice";
 
-/* ---------- STABLE RANDOM ---------- */
+/* ---------- STABLE RANDOM FALLBACK ---------- */
 const getFallbackAvatar = (channelId) => {
   if (!channelId) return avatars[0];
   const index = channelId.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -10,32 +12,39 @@ const getFallbackAvatar = (channelId) => {
 };
 
 const ChannelAvatar = ({ channelId }) => {
+
   const [logo, setLogo] = useState(null);
   const [error, setError] = useState(false);
 
+  const dispatch = useDispatch();
+  const cachedChannel = useSelector((store) => store.channels.cache[channelId]);
+
   useEffect(() => {
+
+    if (!channelId || cachedChannel) return;
+
     const fetchChannel = async () => {
       try {
         const res = await fetch(YOUTUBE_CHANNEL_API(channelId));
         const json = await res.json();
 
-        const thumbnails = json?.items?.[0]?.snippet?.thumbnails;
-        const img = thumbnails?.high?.url || thumbnails?.medium?.url || thumbnails?.default?.url || null;
-
-        setLogo(img);
+        dispatch(setChannel({
+            channelId,
+            data: json.items?.[0],
+          })
+        );
       } catch (err) {
-        setError(true);
+        console.error("Channel fetch failed", err);
       }
     };
 
-    if (channelId) fetchChannel();
-  }, [channelId]);
+    fetchChannel();
+  }, [channelId, cachedChannel, dispatch]);
 
-  const fallback = getFallbackAvatar(channelId);
+  const avatarUrl = !error && cachedChannel?.snippet?.thumbnails?.high?.url;
 
   return (
-    <img
-      src={!error && logo ? logo : fallback}
+    <img src={avatarUrl || getFallbackAvatar(channelId)}
       alt="channel avatar"
       className="h-9 w-9 lg:h-10 lg:w-10 rounded-full object-cover"
       loading="lazy"
@@ -45,3 +54,4 @@ const ChannelAvatar = ({ channelId }) => {
 };
 
 export default ChannelAvatar;
+

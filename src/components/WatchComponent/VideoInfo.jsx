@@ -4,15 +4,30 @@ import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { FiShare2 } from "react-icons/fi";
 import { BsBookmark } from "react-icons/bs";
 import { YOUTUBE_VIDEO_DATA_API } from "../../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { setVideoById } from "../../store/videosSlice";
 
 const VideoInfo = ({ videoId }) => {
   const [video, setVideo] = useState(null);
+  const dispatch = useDispatch();
+  const cachedVideo = useSelector(store => store.videos.videoById[videoId]);
 
   useEffect(() => {
-    fetch(YOUTUBE_VIDEO_DATA_API(videoId))
-      .then(res => res.json())
-      .then(data => setVideo(data.items[0]));
-  }, [videoId]);
+    if(cachedVideo) {
+      setVideo(cachedVideo);
+      return;
+    }
+
+  fetch(YOUTUBE_VIDEO_DATA_API(videoId))
+    .then(res => res.json())
+    .then(data => {
+      setVideo(data.items[0]);
+      dispatch(setVideoById({
+        videoId,
+        video: data.items[0],
+      }));
+    });
+}, [videoId]);
 
   if (!video) return null;
 

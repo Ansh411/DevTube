@@ -8,7 +8,7 @@ import Avatar from "./Avatar";
 
 const CommentText = ({ text }) => {
   return (
-    <div
+    <span
       className="text-gray-800 text-sm leading-relaxed"
       dangerouslySetInnerHTML={{ __html: text }}
     />
