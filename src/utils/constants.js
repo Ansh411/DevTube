@@ -14,6 +14,8 @@ export const YOUTUBE_SEARCH_VIDEOS_API = (query) => `https://www.googleapis.com/
 
 export const YOUTUBE_VIDEOS_BY_IDS_API = (ids) => `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${ids}&key=${YOUTUBE_API_KEY}`;
 
+export const OFFSET_LIVE_CHAT = 14;
+
 
 export const Tags = [
   "All",

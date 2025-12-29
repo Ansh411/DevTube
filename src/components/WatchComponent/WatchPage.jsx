@@ -1,13 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../../store/appSlice";
 import { useSearchParams } from "react-router-dom";
 import VideoInfo from "./VideoInfo";
 import Comments from "./Comments";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   
   const [ searchParams ] = useSearchParams();
+  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
   
   const dispatch = useDispatch();
   
@@ -16,7 +18,7 @@ const WatchPage = () => {
   },[]);
     
   return (
-      <div className="flex gap-6 p-3.5">
+      <div className="flex gap-6 py-2.5 pl-2.5">
       {/* LEFT SECTION */}
       <div className="w-341.5 max-w-full">
 
@@ -38,7 +40,9 @@ const WatchPage = () => {
       </div>
 
       {/* RIGHT SIDE (Live Chat later) */}
-      <div className="hidden xl:block w-90"></div>
+      <div className="hidden xl:block w-90">
+        {!isMenuOpen && <LiveChat/>}
+      </div>
     </div>
   );
 };
