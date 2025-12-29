@@ -5,6 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import VideoInfo from "./VideoInfo";
 import Comments from "./Comments";
 import LiveChat from "./LiveChat";
+import SuggestedVideos from "./SuggestedVideos";
+
 
 const WatchPage = () => {
   
@@ -40,10 +42,16 @@ const WatchPage = () => {
       </div>
 
       {/* RIGHT SIDE (Live Chat later) */}
-      <div className="hidden xl:block w-90">
-        {!isMenuOpen && <LiveChat/>}
-      </div>
+      <div className="hidden xl:flex flex-col w-100 gap-4">
+        {!isMenuOpen && (
+          <>
+          <LiveChat />
+            <h2 className="text-xl font-bold text-gray-900 tracking-wide uppercase pt-2">Suggestions</h2>
+          <SuggestedVideos />
+        </>
+        )}
     </div>
+  </div>
   );
 };
 

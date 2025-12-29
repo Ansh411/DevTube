@@ -7,6 +7,7 @@ export const avatars = [
 "https://i.pinimg.com/736x/be/63/5e/be635e844cf106b57ee689803dca58af.jpg",
 "https://i.pinimg.com/736x/4c/fb/ce/4cfbcef5bcaf7587b1df8cc82c28bc0d.jpg",
 "https://i.pinimg.com/1200x/9e/ef/ac/9eefacfcbdb27ce516bbfccbc93e3413.jpg",
+"https://i.ibb.co/C3t7p2XH/default-avatar.jpg",
 "https://i.pinimg.com/736x/f0/d2/82/f0d2822867cc7d5ad3f0aa5e16466e2f.jpg",
 "https://i.pinimg.com/736x/3c/94/af/3c94af037b04666d04572505c87adfa0.jpg",
 "https://i.pinimg.com/736x/87/d2/39/87d239c65732f941a8f2d9cce9f245f9.jpg",
@@ -18,6 +19,13 @@ export const avatars = [
 "https://i.pinimg.com/1200x/75/f3/3d/75f33d47e1b0afc6630d13c514f12519.jpg",
 "https://i.pinimg.com/736x/3e/a2/a7/3ea2a74c3107f0f3e201fa0c0bf7a2ce.jpg",
 "https://i.pinimg.com/1200x/9c/e9/2a/9ce92a2effca3b2561bebf8a0ca35d57.jpg",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvPx5Ngn3BqU_b1o4MO5-90QnJXVEdVLYmaA&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs_aMoCDAkVZluRbcd0H1DA9exUnhbXNlzgA&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR3dhx5NSf6BE0t505NRMQS6cslBdITwRh0w&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8tWXtg7OWB1e3ZbBzNo9ukfdSjNqLDxkb3Xq7bZHNoQ&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVnJFqB62GUO1NFWB1UP7oLVMBNcv7VJ_Hphk9L9vzQ&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcXRkPPY8dQA-elVezlyeJRh-n1woP9BvWhjKAaqeRWg&s",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrgw67C1--9-bpP1ZclYUPtSWg8DasSTZq7g&s",
 
 ];
 
