@@ -15,6 +15,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { PiVideoFill, PiDownloadSimpleBold } from "react-icons/pi";
 import { IoSettings } from "react-icons/io5";
 import { RiFlagFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 const Sidebar = () => {
@@ -42,12 +43,12 @@ const Sidebar = () => {
       className={`h-[calc(100vh-4rem)] bg-white border-r border-gray-200
         overflow-y-auto overflow-x-hidden transition-[width] duration-300 ease-in-out shrink-0 w-20 no-scrollbar
         ${isMenuOpen ? "lg:w-64" : "lg:w-20"}`}>
-      <div className="py-4 space-y-3">
+      <div className="py-4 space-y-1.5">
 
         {/* MAIN */}
-        <SidebarItem icon={TbHomeFilled} label="Home" collapsed={collapsed} />
-        <SidebarItem icon={SiYoutubeshorts} label="Shorts" collapsed={collapsed} />
-        <SidebarItem icon={MdSubscriptions} label="Subscriptions" collapsed={collapsed} />
+        <Link className="block" to="/"><SidebarItem icon={TbHomeFilled} label="Home" collapsed={collapsed} /></Link>
+        <Link className="block" to="/shorts"><SidebarItem icon={SiYoutubeshorts} label="Shorts" collapsed={collapsed} /></Link>
+        <Link className="block" to="/subscriptions"><SidebarItem icon={MdSubscriptions} label="Subscriptions" collapsed={collapsed} /></Link>
 
         <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
 
@@ -58,12 +59,12 @@ const Sidebar = () => {
           </p>
         )}
 
-        <SidebarItem icon={FaHistory} label="History" collapsed={collapsed} />
-        <SidebarItem icon={MdPlaylistPlay} label="Playlists" collapsed={collapsed} />
-        <SidebarItem icon={MdOutlineTimer} label="Watch Later" collapsed={collapsed} />
-        <SidebarItem icon={BiSolidLike} label="Liked Videos" collapsed={collapsed} />
-        {/* <SidebarItem icon={PiVideoFill} label="Your Videos" collapsed={collapsed} /> */}
-        <SidebarItem icon={PiDownloadSimpleBold} label="Downloads" collapsed={collapsed} />
+         <Link className="block" to="/history"><SidebarItem icon={FaHistory} label="History" collapsed={collapsed} /></Link>
+         <Link className="block" to="/playlists"><SidebarItem icon={MdPlaylistPlay} label="Playlists" collapsed={collapsed} /></Link>
+         <Link className="block" to="/watch-later"><SidebarItem icon={MdOutlineTimer} label="Watch Later" collapsed={collapsed} /></Link>
+         <Link className="block" to="/liked-videos"><SidebarItem icon={BiSolidLike} label="Liked Videos" collapsed={collapsed} /></Link>
+         <Link className="block" to="/your-videos"><SidebarItem icon={PiVideoFill} label="Your Videos" collapsed={collapsed} /></Link>
+         <Link className="block" to="/downloads"><SidebarItem icon={PiDownloadSimpleBold} label="Downloads" collapsed={collapsed} /></Link>
 
         <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
 
@@ -75,12 +76,11 @@ const Sidebar = () => {
         )}
 
         {(showMore ? exploreItems : exploreItems.slice(0, 4)).map((item) => (
-          <SidebarItem
-            key={item.label}
+           <Link className="block" key={item.label} to={"/explore/" + item.label.toLowerCase().replace(/\s+|&/g, "-")}><SidebarItem
             icon={item.icon}
             label={item.label}
             collapsed={collapsed}
-          />
+          /> </Link>
         ))}
 
         {/* SHOW MORE */}
@@ -100,10 +100,10 @@ const Sidebar = () => {
           </button>
         )}
         <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
-        <SidebarItem icon={IoSettings} label="Settings" collapsed={collapsed} />
-        <SidebarItem icon={RiFlagFill} label="Report History" collapsed={collapsed} />
-        <SidebarItem icon={HiMiniQuestionMarkCircle} label="Help" collapsed={collapsed} />
-        <SidebarItem icon={MdFeedback} label="Send Feedback" collapsed={collapsed} />
+         <Link className="block" to="/settings"><SidebarItem icon={IoSettings} label="Settings" collapsed={collapsed} /></Link>
+         <Link className="block" to="/report-history"><SidebarItem icon={RiFlagFill} label="Report History" collapsed={collapsed} /></Link>
+         <Link className="block" to="/help"><SidebarItem icon={HiMiniQuestionMarkCircle} label="Help" collapsed={collapsed} /></Link>
+         <Link className="block" to="/send-feedback"><SidebarItem icon={MdFeedback} label="Send Feedback" collapsed={collapsed} /></Link>
 
         <hr className="my-3 border-t-2 border-gray-400/50 w-[90%] mx-auto" />
       </div>
