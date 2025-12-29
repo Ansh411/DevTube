@@ -2,22 +2,44 @@ import { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
 import { YOUTUBE_VIDEOS_API, YOUTUBE_SEARCH_VIDEOS_API, YOUTUBE_VIDEOS_BY_IDS_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setTrending, setSearchResults } from "../store/videosSlice";
 
-const VideoContainer = ({ selectedTag }) => {
+const VideoContainer = ({ selectedTag, setLoading }) => {
+
   const [videos, setVideos] = useState([]);
+  const dispatch = useDispatch();
+  const { trending, searchResults } = useSelector(store => store.videos);
 
   useEffect(() => {
     fetchVideos();
   }, [selectedTag]);
 
+
   const fetchVideos = async () => {
     try {
+
+      setLoading(true);
+      
       // 🟢 TRENDING
       if (selectedTag === "All") {
+        if(trending) {
+          setVideos(trending);
+          setLoading(false);
+          return;
+        }
 
         const res = await fetch(YOUTUBE_VIDEOS_API);
         const json = await res.json();
+        dispatch(setTrending(json.items));
         setVideos(json.items || []);
+        setLoading(false);
+        return;
+      }
+
+      if(searchResults [selectedTag]) {
+        setVideos(searchResults[selectedTag]);
+        setLoading(false);
         return;
       }
 
@@ -31,7 +53,13 @@ const VideoContainer = ({ selectedTag }) => {
       const statsRes = await fetch(YOUTUBE_VIDEOS_BY_IDS_API(videoIds));
       const statsJson = await statsRes.json();
 
+      dispatch(setSearchResults({
+        query : selectedTag,
+        videos : statsJson.items,
+      }));
+
       setVideos(statsJson.items || []);
+      setLoading(false);
     } catch (err) {
       console.error("Video fetch failed", err);
     }
