@@ -11,6 +11,10 @@ const WatchPage = lazy(() => import("./components/WatchComponent/WatchPage"));
 const SearchResults = lazy(() => import("./components/SearchComponent/SearchResults"));
 const UnderConstruction = lazy(() => import("./components/UnderConstruction"));
 
+const Create = lazy(() => import("./components/Other/Create"));
+const Notifications = lazy(() => import("./components/Other/Notifications"));
+const User = lazy(() => import("./components/Other/User"));
+
 const Shorts = lazy(() => import("./components/Other/Shorts"));
 const Subscriptions = lazy(() => import("./components/Other/Subscriptions"));
 
@@ -47,6 +51,19 @@ const appRouter = createBrowserRouter([
     ],
     errorElement : <Suspense fallback={<Loader/>}><UnderConstruction /></Suspense>
   },
+
+      {
+        path : "/create",
+        element : <Suspense fallback={<Loader/>}><Create /></Suspense>
+      },
+      {
+        path : "/notifications",
+        element : <Suspense fallback={<Loader/>}><Notifications /></Suspense>
+      },
+      {
+        path : "/user",
+        element : <Suspense fallback={<Loader/>}><User /></Suspense>
+      },
       {
         path : "/shopping",
         element : <Suspense fallback={<Loader/>}><UnderConstruction /></Suspense>
