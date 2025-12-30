@@ -1,13 +1,66 @@
+// import { useRef, useState } from "react";
+// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+// import Tag from "./Tag";
+// import { Tags } from "../utils/constants";
+
+
+
+// const TagList = ({ selectedTag, setSelectedTag }) => {
+//   const scrollRef = useRef(null);
+//   const [showLeft, setShowLeft] = useState(false);
+
+//   const scroll = (direction) => {
+//     const scrollAmount = 300;
+//     scrollRef.current.scrollBy({
+//       left: direction === "right" ? scrollAmount : -scrollAmount,
+//       behavior: "smooth",
+//     });
+//   };
+
+//   return (
+//     <div className="relative w-full overflow-hidden">
+//       {/* LEFT ARROW */}
+//       {showLeft && (
+//         <button onClick={() => scroll("left")}
+//           className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md h-9 w-9 rounded-full cursor-pointer
+//                      flex items-center justify-center hover:bg-gray-100">
+//           <FaChevronLeft />
+//         </button>
+//       )}
+
+//       {/* TAG STRIP */}
+//       <div ref={scrollRef}
+//         onScroll={(e) => setShowLeft(e.target.scrollLeft > 0)}
+//         className="flex gap-3 overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar px-12 py-3 w-full">
+//         {Tags.map((tag) => (
+//           <Tag key={tag} name={tag} active={selectedTag === tag} onClick={setSelectedTag} />
+//         ))}
+//       </div>
+
+//       {/* RIGHT ARROW */}
+//       <button onClick={() => scroll("right")}
+//         className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md h-9 w-9 rounded-full cursor-pointer
+//                    flex items-center justify-center hover:bg-gray-100">
+//         <FaChevronRight />
+//       </button>
+//     </div>
+//   );
+// };
+
+
+// export default TagList;
+
 import { useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Tag from "./Tag";
 import { Tags } from "../utils/constants";
-
-
+import { useSelector } from "react-redux";
 
 const TagList = ({ selectedTag, setSelectedTag }) => {
   const scrollRef = useRef(null);
   const [showLeft, setShowLeft] = useState(false);
+  const theme = useSelector(store => store.app.theme);
+  const isDark = theme === "dark";
 
   const scroll = (direction) => {
     const scrollAmount = 300;
@@ -21,31 +74,38 @@ const TagList = ({ selectedTag, setSelectedTag }) => {
     <div className="relative w-full overflow-hidden">
       {/* LEFT ARROW */}
       {showLeft && (
-        <button onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md h-9 w-9 rounded-full cursor-pointer
-                     flex items-center justify-center hover:bg-gray-100">
+        <button
+          onClick={() => scroll("left")}
+          className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 shadow-md h-9 w-9 rounded-full cursor-pointer
+            flex items-center justify-center transition
+            ${isDark ? "bg-[#1f1f1f] hover:bg-gray-800 text-gray-200" : "bg-white hover:bg-gray-100"}`}
+        >
           <FaChevronLeft />
         </button>
       )}
 
       {/* TAG STRIP */}
-      <div ref={scrollRef}
+      <div
+        ref={scrollRef}
         onScroll={(e) => setShowLeft(e.target.scrollLeft > 0)}
-        className="flex gap-3 overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar px-12 py-3 w-full">
+        className="flex gap-3 overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar px-12 py-3 w-full"
+      >
         {Tags.map((tag) => (
           <Tag key={tag} name={tag} active={selectedTag === tag} onClick={setSelectedTag} />
         ))}
       </div>
 
       {/* RIGHT ARROW */}
-      <button onClick={() => scroll("right")}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md h-9 w-9 rounded-full cursor-pointer
-                   flex items-center justify-center hover:bg-gray-100">
+      <button
+        onClick={() => scroll("right")}
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 shadow-md h-9 w-9 rounded-full cursor-pointer
+          flex items-center justify-center transition
+          ${isDark ? "bg-[#1f1f1f] hover:bg-gray-800 text-gray-200" : "bg-white hover:bg-gray-100"}`}
+      >
         <FaChevronRight />
       </button>
     </div>
   );
 };
-
 
 export default TagList;
