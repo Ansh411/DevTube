@@ -8,6 +8,7 @@ const DesktopOnly = ({ children }) => {
 
       {/* Mobile / Tablet */}
       <div className="flex lg:hidden min-h-screen items-center justify-center bg-black text-white px-6">
+        <img src="https://media.tenor.com/KVu2fd8SSY4AAAAi/no-move.gif" className="w-36" alt="Desktop GIF" />
         <div className="text-center animate-pulse">
           <h1 className="text-xl font-bold">
             Desktop Only Website
