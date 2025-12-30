@@ -25,12 +25,10 @@ const WatchPage = () => {
       <div className={`flex gap-6 py-2.5 pl-2.5 ${isDark ? "bg-black" : "bg-white"} min-h-screen`}>
       {/* LEFT SECTION */}
       <div className="w-341.5 max-w-full">
-
         {/* 👇 iframe stays EXACTLY same */}
+        <div className="relative w-full aspect-video">
         <iframe 
-          className="rounded-xl"
-          width="1366" 
-          height="768" 
+          className="absolute inset-0 w-full h-full rounded-xl"
           src={"https://www.youtube.com/embed/" + searchParams.get("v") + "?autoplay=1"} 
           title="YouTube video player" 
           frameBorder="0" 
@@ -38,6 +36,7 @@ const WatchPage = () => {
           referrerPolicy="strict-origin-when-cross-origin" 
           allowFullScreen>
         </iframe>
+        </div>
 
         <VideoInfo videoId={searchParams.get("v")} />
         <Comments videoId={searchParams.get("v")} />

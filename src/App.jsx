@@ -4,6 +4,7 @@ import appStore from "./store/appStore";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
+import DesktopOnly from "./components/DesktopOnly";
 
 
 const MainContainer = lazy(() => import("./components/MainContainer"));
@@ -159,7 +160,9 @@ const appRouter = createBrowserRouter([
 const App = () => {
   return (
     <Provider store={appStore} >
+      <DesktopOnly>
       <RouterProvider router={appRouter} />
+      </DesktopOnly>
     </Provider>
   );
 };

@@ -20,7 +20,7 @@ const UnderConstruction = () => {
       <div className="space-y-2">
         {/* ERROR CODE */}
         <p
-          className={`flex justify-center  items-center text-lg tracking-[0.35em] space-x-2 mb-2
+          className={`flex justify-center  items-center text-md lg:text-lg tracking-[0.35em] space-x-2 mb-2
             ${isDark ? "text-gray-400" : "text-gray-500"}`}
         >
           <span> ERROR </span>
@@ -28,14 +28,14 @@ const UnderConstruction = () => {
 
         {/* TITLE */}
         <h1
-          className={`flex text-3xl gap-x-2 items-center md:text-4xl font-semibold mb-1
+          className={`flex text-xl lg:text-3xl gap-x-2 items-center md:text-4xl font-semibold mb-1 animate-bounce
             ${isDark ? "text-gray-100" : "text-gray-800"}`}
         >
-          <LiaSkullCrossbonesSolid className="text-5xl text-rose-500" />
+          <LiaSkullCrossbonesSolid className="text-2xl lg:text-5xl text-rose-500" />
           <span className="text-rose-500">
             Website Under Maintenance
           </span>
-          <LiaSkullCrossbonesSolid className="text-5xl text-rose-500" />
+          <LiaSkullCrossbonesSolid className="text-2xl lg:text-5xl text-rose-500" />
         </h1>
       </div>
 
@@ -55,7 +55,7 @@ const UnderConstruction = () => {
       {/* HOME BUTTON */}
       <Link to="/">
         <p
-          className={`flex gap-6 px-6 mb-6 rounded-xl shadow-sm text-lg transition cursor-pointer
+          className={`flex gap-6 px-6 mb-6 rounded-xl shadow-sm text-md lg:text-lg transition cursor-pointer
             ${
               isDark
                 ? "bg-gray-800 hover:bg-gray-700 text-gray-100 hover:text-lime-400"
@@ -76,7 +76,7 @@ const UnderConstruction = () => {
             ${isDark ? "text-gray-200" : "text-gray-900"}`}
         >
           <MdMail className="font-2xl text-red-500" />
-          <span className={`${isDark ? "hover:text-zinc-100" : "hover:text-slate-900"} cursor-pointer`}>
+          <span className={`${isDark ? "hover:text-zinc-100" : "hover:text-slate-900"} cursor-pointer text-xs lg:text-lg`}>
             4gansh11@gmail.com
           </span>
         </span>
@@ -86,7 +86,7 @@ const UnderConstruction = () => {
             ${isDark ? "text-gray-200" : "text-gray-900"}`}
         >
           <BiPhone className="text-xl text-lime-500" />
-          <span className={`${isDark ? "hover:text-zinc-100" : "hover:text-slate-900"} cursor-pointer`}>
+          <span className={`${isDark ? "hover:text-zinc-100" : "hover:text-slate-900"} cursor-pointer text-xs lg:text-lg`}>
             +91 8949423532
           </span>
         </span>
