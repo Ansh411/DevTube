@@ -7,10 +7,14 @@ import { YOUTUBE_VIDEO_DATA_API } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { setVideoById } from "../../store/videosSlice";
 
+
 const VideoInfo = ({ videoId }) => {
   const [video, setVideo] = useState(null);
   const dispatch = useDispatch();
   const cachedVideo = useSelector(store => store.videos.videoById[videoId]);
+  const theme = useSelector((store) => store.app.theme);
+  const isDark = theme === "dark";
+
 
   useEffect(() => {
     if(cachedVideo) {
@@ -33,7 +37,7 @@ const VideoInfo = ({ videoId }) => {
 
   return (
     <div className="mt-4">
-      <h1 className="text-xl font-semibold text-gray-900">
+      <h1 className={`text-xl font-semibold ${isDark ? "text-gray-100" : "text-gray-900"}`}>
         {video.snippet.title}
       </h1>
 
@@ -41,21 +45,25 @@ const VideoInfo = ({ videoId }) => {
         <ChannelInfo channelId={video.snippet.channelId} />
 
         <div className="flex gap-3">
-          <Action icon={<AiOutlineLike className="text-xl" />} label="Like" />
-          <Action icon={<AiOutlineDislike className="text-xl" />} label="Dislike" />
-          <Action icon={<FiShare2 className="text-xl" />} label="Share" />
-          <Action icon={<BsBookmark className="text-xl" />} label="Save" />
+          <Action icon={<AiOutlineLike className="text-xl" />} label="Like" isDark={isDark} />
+          <Action icon={<AiOutlineDislike className="text-xl" />} label="Dislike" isDark={isDark} />
+          <Action icon={<FiShare2 className="text-xl" />} label="Share" isDark={isDark} />
+          <Action icon={<BsBookmark className="text-xl" />} label="Save" isDark={isDark} />
         </div>
       </div>
     </div>
   );
 };
 
-const Action = ({ icon, label }) => (
-  <button className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer bg-gray-100 hover:bg-gray-200 transition">
+const Action = ({ icon, label, isDark }) => (
+  <button
+    className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition
+      ${isDark ? "bg-[#1f1f1f] hover:bg-[#2a2a2a] text-gray-200" : "bg-gray-100 hover:bg-gray-200 text-black"}`} >
     {icon}
     <span className="text-sm font-semibold">{label}</span>
   </button>
 );
+
+
 
 export default VideoInfo;

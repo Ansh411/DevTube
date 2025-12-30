@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { BsBell } from "react-icons/bs";
 import { format } from "../../utils/helpers";
 import { YOUTUBE_CHANNEL_API } from "../../utils/constants";
+import { useSelector } from "react-redux";
 
 const ChannelInfo = ({ channelId }) => {
   const [channel, setChannel] = useState(null);
   const [subscribed, setSubscribed] = useState(false);
+  const theme = useSelector((store) => store.app.theme);
+  const isDark = theme === "dark";
 
   useEffect(() => {
     const fetchChannelInfo = async () => {
@@ -38,10 +41,10 @@ const ChannelInfo = ({ channelId }) => {
 
       {/* Channel Details */}
       <div className="flex flex-col">
-        <span className="font-semibold text-base">
+        <span className={`font-semibold text-base ${isDark ? "text-white" : "text-black"}`}>
           {channel.snippet.title}
         </span>
-        <span className="text-sm text-gray-600">
+        <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
           {format(channel.statistics.subscriberCount)} subscribers
         </span>
       </div>
@@ -51,8 +54,8 @@ const ChannelInfo = ({ channelId }) => {
         onClick={() => setSubscribed(!subscribed)}
         className={`ml-4 px-5 py-2 rounded-full cursor-pointer font-medium transition ${
           subscribed
-            ? "bg-gray-200 text-black"
-            : "bg-black text-white hover:bg-gray-900"
+            ? `${isDark ? "bg-[#2a2a2a] text-white" : "bg-gray-200 text-black"}`
+            : `${isDark ? "hover:bg-[#333]" : "hover:bg-gray-950"} bg-zinc-800 text-white`
         }`}
       >
         {subscribed ? "Subscribed" : "Subscribe"}
@@ -60,7 +63,7 @@ const ChannelInfo = ({ channelId }) => {
 
       {/* Bell Icon */}
       {subscribed && (
-        <button className="p-2 rounded-full hover:bg-gray-200 cursor-pointer transition">
+        <button className={`p-2 rounded-full ${isDark ? "hover:bg-[#2a2a2a]" : "hover:bg-gray-200"} cursor-pointer transition`}>
           <BsBell className="text-xl" />
         </button>
       )}
