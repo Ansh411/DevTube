@@ -29,4 +29,21 @@ export const avatars = [
 
 ];
 
-export const ErrorImg = "https://i.pinimg.com/originals/db/04/00/db0400868e5aac451726ad8bb0f9a8f2.gif";
+export const ErrorImgs = [
+
+    "https://i.ibb.co/kVW2ZSqj/maintenance-under-maintenance.gif",
+    "https://i.ibb.co/fYvDqwKf/im-working-on-it-stan-marsh.gif",
+    "https://i.ibb.co/YTBTm4Fb/navy-rebrnd.gif",
+    "https://i.ibb.co/xqLnChpG/trabajando-r-pido-trabajando.gif",
+    "https://i.ibb.co/TBLLSbCr/under-construction-lex.gif",
+    "https://i.ibb.co/JFcmkqmz/vasttrails.gif",
+    "https://i.ibb.co/bMZ5dkLX/penguin-self-care.gif",
+    "https://i.ibb.co/zhCpYmpK/were-working-on-it-stan-marsh.gif",
+];
+
+
+export const getRandomErrorImg = () => {
+  return ErrorImgs[Math.floor(Math.random() * ErrorImgs.length)];
+};
+
+
