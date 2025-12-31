@@ -22,7 +22,7 @@ const WatchPage = () => {
   },[]);
     
   return (
-      <div className={`flex gap-6 py-2.5 pl-2.5 ${isDark ? "bg-black" : "bg-white"} min-h-screen`}>
+      <div className={`flex gap-6 py-2.5 pl-2.5 ${isDark ? "bg-black" : "bg-white"} min-h-screen overflow-x-hidden`}>
       {/* LEFT SECTION */}
       <div className="w-341.5 max-w-full">
         {/* 👇 iframe stays EXACTLY same */}
