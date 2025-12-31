@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://gpt-flix-alpha.vercel.app/">
+  <a href="https://dev-tube-gilt.vercel.app">
     <img src="./public/DevTube_Dark.png" alt="DubeevT Logo" />
   </a>
 </p>
