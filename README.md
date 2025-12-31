@@ -25,8 +25,8 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
 ## 📸 Screenshots
 
 <div align="center">
-      <img src = "https://i.ibb.co/Xf3qNXDP/Home-Page-Light.png" width ="400" /> 
-      <img src = "https://i.ibb.co/hF4kn4wC/Home-Page-Dark.png" width ="400" /> 
+      <img src = "https://iili.io/fXQtGd7.md.png" width ="400" /> 
+      <img src = "https://iili.io/fXQp2Ev.md.png" width ="400" /> 
       <br/>
       <img src = "https://i.ibb.co/27c2z3vs/Search-Bar-Dark.png" width ="400" /> 
       <img src = "https://i.ibb.co/8L3kSRwg/Search-Bar-Light.png" width ="400" /> 
