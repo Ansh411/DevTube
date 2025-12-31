@@ -8,8 +8,6 @@
     <b><i>'DevTube'</i> — YouTube-Inspired Video Streaming Platform</b>
 </h2>
 
-<hr/>
-
 DevTube is a **modern, feature-rich YouTube-inspired web application** built with **React, Redux, and Tailwind CSS**.  
 It focuses on **clean UI, real-time interactions, performance optimization, and scalable architecture**, while following industry-level best practices.
 
@@ -20,7 +18,6 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
 ## 🚀 Live Demo
 🔗 https://dev-tube-gilt.vercel.app
 
----
 
 ## 📸 Screenshots
 
@@ -35,9 +32,8 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
       <img src = "https://i.ibb.co/bRYmZ8RX/Watch-Page-Dark.png" width ="400" /> 
       <br/>
 </div>
-<br/><hr/>
+<br/>
 
----
 
 ## 🧠 Key Features
 
@@ -166,7 +162,7 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
 - Sticky headers
 - Aspect-ratio safe video embeds
 
----
+
 
 ## 🗂️ Folder Structure
 
