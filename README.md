@@ -128,8 +128,8 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
 ## 🧰 Tech Stack
 
 ### ⚛️ Frontend
-- **React 18**
-- **React Router v6**
+- **React 19**
+- **React Router v7**
 - **Redux Toolkit**
 - **Tailwind CSS**
 - **React Icons**
