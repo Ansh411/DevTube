@@ -22,14 +22,14 @@ It focuses on **clean UI, real-time interactions, performance optimization, and 
 ## 📸 Screenshots
 
 <div align="center">
-      <img src = "https://iili.io/fXQtGd7.md.png" width ="400" /> 
-      <img src = "https://iili.io/fXQp2Ev.md.png" width ="400" /> 
+      <img src = "./DevTube - Previews/HomePage Light.png" width ="400" /> 
+      <img src = "./DevTube - Previews/HomePage_Dark.png" width ="400" /> 
       <br/>
-      <img src = "https://i.ibb.co/8L3kSRwg/Search-Bar-Light.png" width ="400" /> 
-      <img src = "https://i.ibb.co/27c2z3vs/Search-Bar-Dark.png" width ="400" /> 
+      <img src = "./DevTube - Previews/SearchBar_Light.png" width ="400" /> 
+      <img src = "./DevTube - Previews/SearchBar_Dark.png" width ="400" /> 
       <br/> 
-      <img src = "https://i.ibb.co/bRRxd932/Watch-Page-Light.png" width ="400" />
-      <img src = "https://i.ibb.co/bRYmZ8RX/Watch-Page-Dark.png" width ="400" /> 
+      <img src = "./DevTube - Previews/WatchPage_Light.png" width ="400" />
+      <img src = "./DevTube - Previews/WatchPage_Dark.png" width ="400" /> 
       <br/>
 </div>
 <br/>
